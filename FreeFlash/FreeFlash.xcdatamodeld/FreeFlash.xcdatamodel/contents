@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
+    <entity name="StudySet" representedClassName="StudySet" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FlashCard" inverseName="studySet" inverseEntity="FlashCard"/>
+    </entity>
+    <entity name="FlashCard" representedClassName="FlashCard" syncable="YES" codeGenerationType="class">
+        <attribute name="back" optional="YES" attributeType="String"/>
+        <attribute name="front" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="studySet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudySet" inverseName="cards" inverseEntity="StudySet"/>
+    </entity>
+    <elements>
+        <element name="StudySet" positionX="0" positionY="0" width="128" height="74"/>
+        <element name="FlashCard" positionX="200" positionY="0" width="128" height="104"/>
+    </elements>
+</model>
